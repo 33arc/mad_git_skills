@@ -1,0 +1,22 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+(progn ;;init forms
+  (ros:ensure-asdf)
+  #+quicklisp(ql:quickload '() :silent t)
+  )
+
+(defpackage :ros.script.lmao.3899526552
+  (:use :cl))
+(in-package :ros.script.lmao.3899526552)
+
+(defun main (n &rest argv)
+  (declare (ignorable argv))
+  (let ((number (parse-integer n))
+        (result (+ (parse-integer n) 40)))
+    (format t "The result of ~a + 40 is ~a.~%" number result)
+    result))
+
+;;; vim: set ft=lisp lisp:
